@@ -17,8 +17,8 @@
 	"$phongwarptexture" "models/player/shared/emerald_phong"
 	"$lightwarptexture" "models/player/shared/emerald_lightwarp"
 
-	"$envmap" "models/player/shared/emerald_envmap"
-	"$envmaptint" "[.2 .2 .2]" 
+	"$envmap" "effects/cubemapper"
+	"$envmaptint" "[.03 .7 .05]" 
 
 
 	// Rim lighting parameters

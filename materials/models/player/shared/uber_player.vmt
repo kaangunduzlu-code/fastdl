@@ -1,0 +1,61 @@
+"VertexlitGeneric"
+{
+	"$basetexture" "models/player/shared/uber_player"
+	"$bumpmap" "models/player/shared/uber_normal"
+	"$detail" "models/player/shared/uber_detail"	
+	"$detailscale" "5"
+	"$detailblendfactor" .015
+	"$detailblendmode" 6
+	"$yellow" "0"
+	
+	// High shine for uber glow
+	"$phong" "1"
+	"$phongexponent" "150"
+	"$phongboost" "80"
+	"$phongfresnelranges"	"[.1 .5 1]"
+	"$basemapalphaphongmask" "1"
+	"$phongwarptexture" "models/player/shared/uber_normal"
+	"$lightwarptexture" "models/player/shared/uber_lightwarp"
+	
+	// Uber blue reflections
+	"$envmap" "Effects/cubemapper"
+	"$envmaptint" "[.4 .6 1]"  // Bright blue tint
+	
+	// STRONG rim lighting for uber glow effect (KEY!)
+	"$rimlight" "1"
+	"$rimlightexponent" "20"
+	"$rimlightboost" "25"  // VERY HIGH for uber glow!
+	
+	// Self-illumination for glow
+	"$selfillum" "1"
+	"$selfillumtint" "[0.3 0.5 0.7]"
+	
+	// Cloaking
+	"$cloakPassEnabled" "1"
+	
+	Proxies
+	{
+		invis
+		{
+		}
+		AnimatedTexture
+		{
+			"animatedtexturevar" "$detail"
+			"animatedtextureframenumvar" "$detailframe"
+			"animatedtextureframerate" 30
+		}
+		BurnLevel
+		{
+			"resultVar" "$detailblendfactor"
+		}
+		YellowLevel
+		{
+			"resultVar" "$yellow"
+		}
+		Equals
+		{
+			"srcVar1" "$yellow"
+			"resultVar" "$color2"
+		}
+	}
+}

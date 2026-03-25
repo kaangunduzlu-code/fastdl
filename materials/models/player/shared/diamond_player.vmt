@@ -1,0 +1,61 @@
+"VertexlitGeneric"
+{
+	"$basetexture" "models/player/shared/diamond_player"
+	"$bumpmap" "models/player/shared/diamond_normal"
+	"$detail" "models/player/shared/diamond_detail"	
+	"$detailscale" "5"
+	"$detailblendfactor" .02
+	"$detailblendmode" 6
+	"$yellow" "0"
+	
+	// EXTREME shine for diamond (highest reflectivity!)
+	"$phong" "1"
+	"$phongexponent" "300"          // VERY HIGH - sharp highlights
+	"$phongboost" "150"             // EXTREME shine
+	"$phongfresnelranges"	"[.05 .1 .3]"
+	"$basemapalphaphongmask" "1"
+	"$phongwarptexture" "models/player/shared/diamond_normal"
+	"$lightwarptexture" "models/player/shared/diamond_lightwarp"
+	
+	// Strong reflections (diamond is highly reflective)
+	"$envmap" "Effects/cubemapper"
+	"$envmaptint" "[.8 .8 .9]"      // Bright, neutral with slight blue
+	
+	// Strong rim lighting for brilliance
+	"$rimlight" "1"
+	"$rimlightexponent" "100"       // VERY sharp rim
+	"$rimlightboost" "30"           // STRONG glow
+	
+	// Self-illumination for sparkle
+	"$selfillum" "1"
+	"$selfillumtint" "[0.5 0.5 0.6]"
+	
+	// Cloaking
+	"$cloakPassEnabled" "1"
+	
+	Proxies
+	{
+		invis
+		{
+		}
+		AnimatedTexture
+		{
+			"animatedtexturevar" "$detail"
+			"animatedtextureframenumvar" "$detailframe"
+			"animatedtextureframerate" 30
+		}
+		BurnLevel
+		{
+			"resultVar" "$detailblendfactor"
+		}
+		YellowLevel
+		{
+			"resultVar" "$yellow"
+		}
+		Equals
+		{
+			"srcVar1" "$yellow"
+			"resultVar" "$color2"
+		}
+	}
+}

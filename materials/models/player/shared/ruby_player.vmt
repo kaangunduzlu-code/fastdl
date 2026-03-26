@@ -1,0 +1,62 @@
+"VertexlitGeneric"
+{
+	"$basetexture" "models/player/shared/ruby_player"
+	"$bumpmap" "models/player/shared/ruby_normal"
+	"$detail" "models/player/shared/ruby_detail"	
+	"$detailscale" "5"
+	"$detailblendfactor" .015
+	"$detailblendmode" 6
+	"$yellow" "0"
+	
+	// High shine for ruby (between emerald and diamond)
+	"$phong" "1"
+	"$phongexponent" "250"
+	"$phongboost" "120"
+	"$phongfresnelranges"	"[.15 .5 2]"
+	"$basemapalphaphongmask" "1"
+	"$phongwarptexture" "models/player/shared/ruby_normal"
+	"$lightwarptexture" "models/player/shared/ruby_lightwarp"
+	
+	// Warm red reflections
+	"$envmap" "Effects/cubemapper"
+	"$envmaptint" "[1.5 0.05 0.05]"  // Red-tinted reflections
+	
+	// Strong rim lighting for ruby fire/glow
+	"$rimlight" "1"
+	"$rimlightexponent" "40"
+	"$rimlightboost" "20"
+	"$rimlightint" "[1.5 0.3 0.4]"  // Warm red rimlight
+	
+	// Self-illumination for internal glow
+	"$selfillum" "1"
+	"$selfillumtint" "[0.5 0.1 0.15]"
+	
+	// Cloaking
+	"$cloakPassEnabled" "1"
+	
+	Proxies
+	{
+		invis
+		{
+		}
+		AnimatedTexture
+		{
+			"animatedtexturevar" "$detail"
+			"animatedtextureframenumvar" "$detailframe"
+			"animatedtextureframerate" 30
+		}
+		BurnLevel
+		{
+			"resultVar" "$detailblendfactor"
+		}
+		YellowLevel
+		{
+			"resultVar" "$yellow"
+		}
+		Equals
+		{
+			"srcVar1" "$yellow"
+			"resultVar" "$color2"
+		}
+	}
+}

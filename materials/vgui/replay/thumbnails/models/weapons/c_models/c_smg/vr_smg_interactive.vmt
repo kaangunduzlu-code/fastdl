@@ -1,0 +1,104 @@
+"UnlitTwoTexture"
+{
+	"$basetexture"		"vgui\replay\thumbnails\models\weapons\c_models\c_smg\vr_smg"
+	"$bumpmap"		"vgui\replay\thumbnails\models\weapons\c_models\c_smg\vr_smg_normal"
+	"$texture2"		"vgui\replay\thumbnails\models\weapons\c_models\c_smg\interactive_highlight"
+	"$texture2scale"		"4"
+	"$surfaceprop"		"metal"
+	"$phong"			"1"
+	"$phongexponent"		"45"
+	"$phongboost"		"2"
+	"$phongfresnelranges"	"[.2 4 1]"
+
+	"Proxies"
+	{
+
+		"Sine"
+		{
+			"resultVar"	"$color[0]"
+			"sineperiod"	"0.75"
+			"sinemin"		"6"
+			"sinemax"	"16"
+		}
+
+		"Sine"
+		{
+			"resultVar"	"$color[1]"
+			"sineperiod"	"0.75"
+			"sinemin"		"6"
+			"sinemax"	"16"
+		}
+
+		"Sine"
+		{
+			"resultVar"	"$color[2]"
+			"sineperiod"	"0.75"
+			"sinemin"		"6"
+			"sinemax"	"16"
+		}
+
+		"TextureScroll"
+		{
+			"texturescrollVar"	"$texture2transform"
+			"texturescrollRate"	".05"
+			"texturescrollAngle"	"90"
+		}
+	}
+	
+ 	// requred to see specular on dx6+7 at all
+	"$multipass" 1
+
+	"$glowcolor" "1"
+// Cloaking
+
+	"$cloakPassEnabled" "1"
+	"$sheenPassEnabled" "1"
+
+	"$sheenmap" 		"cubemaps/cubemap_sheen001"
+	"$sheenmapmask" 		"Effects/AnimatedSheen/animatedsheen0"
+	"$sheenmaptint" 		"[ 1 1 1 ]"
+	"$sheenmapmaskframe" 	"0"
+	"$sheenindex" 		"0"
+
+	"$yellow" "0"
+
+	"Proxies"
+	{
+		"AnimatedWeaponSheen"
+		{
+			"animatedtexturevar" 		"$sheenmapmask"
+			"animatedtextureframenumvar" 	"$sheenmapmaskframe"
+			"animatedtextureframerate" 		"40"
+		}
+		"invis"
+		{
+		}
+		"ModelGlowColor"
+		{
+			"resultVar" "$glowcolor"
+		}
+		"Equals"
+		{
+			"srcVar1"  "$glowcolor"
+			"resultVar" "$selfillumtint"
+		}
+		"Equals"
+		{
+			"srcVar1"  "$glowcolor"
+			"resultVar" "$color2"
+		}
+		"YellowLevel"
+		{
+			"resultVar" "$yellow"
+		}
+		"Multiply"
+		{
+			"srcVar1" "$color2"
+			"srcVar2" "$yellow"
+			"resultVar" "$color2"
+		}
+	
+	
+
+	}
+}

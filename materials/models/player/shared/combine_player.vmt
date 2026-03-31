@@ -1,0 +1,62 @@
+"VertexlitGeneric"
+{
+	"$basetexture" "models/player/shared/combine_player"
+	"$bumpmap" "models/player/shared/combine_normal"
+	"$detail" "models/player/shared/combine_detail"	
+	"$detailscale" "5"
+	"$detailblendfactor" .025
+	"$detailblendmode" 6
+	"$yellow" "0"
+	
+	// Moderate phong for industrial metallic look
+	"$phong" "1"
+	"$phongexponent" "100"
+	"$phongboost" "60"
+	"$phongfresnelranges"	"[.3 .5 1]"
+	"$basemapalphaphongmask" "1"
+	"$phongwarptexture" "models/player/shared/combine_normal"
+	"$lightwarptexture" "models/player/shared/combine_lightwarp"
+	
+	// Cool metallic reflections
+	"$envmap" "Effects/cubemapper"
+	"$envmaptint" "[.3 .35 .45]"  // Cool blue-grey tint
+	
+	// Orange rimlight for Combine energy glow
+	"$rimlight" "1"
+	"$rimlightexponent" "30"
+	"$rimlightboost" "12"
+	"$rimlightint" "[1.5 0.8 0.2]"  // ORANGE rimlight!
+	
+	// ORANGE self-illumination for glowing tech
+	"$selfillum" "1"
+	"$selfillumtint" "[1.0 0.6 0.1]"  // Strong orange glow
+	
+	// Cloaking
+	"$cloakPassEnabled" "1"
+	
+	Proxies
+	{
+		invis
+		{
+		}
+		AnimatedTexture
+		{
+			"animatedtexturevar" "$detail"
+			"animatedtextureframenumvar" "$detailframe"
+			"animatedtextureframerate" 30
+		}
+		BurnLevel
+		{
+			"resultVar" "$detailblendfactor"
+		}
+		YellowLevel
+		{
+			"resultVar" "$yellow"
+		}
+		Equals
+		{
+			"srcVar1" "$yellow"
+			"resultVar" "$color2"
+		}
+	}
+}

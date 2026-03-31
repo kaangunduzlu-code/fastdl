@@ -1,0 +1,6 @@
+"UnlitGeneric"
+{
+	"$basetexture" "effects/bluelaser1"
+	"$vertexalpha" "1"
+	"$additive" "1"
+}

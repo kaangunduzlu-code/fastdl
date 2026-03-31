@@ -1,0 +1,13 @@
+"VertexLitGeneric"
+{
+	"$basetexture"	"vgui\replay\thumbnails\models\workshop_partner\weapons\c_models\c_dex_sniperrifle\w_sniper"
+	"$surfaceprop"	"Metal"
+	"$bumpmap"	"vgui\replay\thumbnails\models\workshop_partner\weapons\c_models\c_dex_sniperrifle\w_sniper_normal"
+	"$model" "1"
+	"$phong" "1"
+	"$phongboost" "1"
+	"$phongexponenttexture" "vgui\replay\thumbnails\models\workshop_partner\weapons\c_models\c_dex_sniperrifle\w_sniper_phong"
+	"$phongalbedotint" "1"								
+	"$phongfresnelranges"	"[.5 1 2]"
+}
+
